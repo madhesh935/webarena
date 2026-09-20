@@ -4,7 +4,7 @@ import type { Overview, SourceId } from "../lib/model";
 import { formatHours, formatNumber } from "../lib/format";
 import { comparePeriods, defaultWindows, type PeriodWindow } from "../lib/period";
 import type { Receipt } from "../lib/model";
-import { Button, Field } from "./ui";
+import { Button, Field } from "./UiElements";
 
 const JOURNEY_SOURCES: SourceId[] = ["spotify", "household", "customer"];
 

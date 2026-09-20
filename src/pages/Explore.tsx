@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { JourneyChart, PeriodCompare } from "../components/charts";
-import { ReceiptCard, ReceiptDetail } from "../components/receipts";
-import { Button, DialogSheet, EmptyState, ErrorBox, Field, LiveRegion, SourceChip } from "../components/ui";
-import { useAppData } from "../context/app-context";
+import { JourneyChart, PeriodCompare } from "../components/Charts";
+import { ReceiptCard, ReceiptDetail } from "../components/ReceiptCard";
+import { Button, DialogSheet, EmptyState, ErrorBox, Field, LiveRegion, SourceChip } from "../components/UiElements";
+import { useAppData } from "../context/AppDataContext";
 import { MEDIA_QUERIES, PAGE_SIZE } from "../constants";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import { useLockBody, useMedia } from "../hooks/use-media";
+import { useLockBody, useMedia } from "../hooks/useMedia";
 import { useFilteredReceipts } from "../hooks/useSearchWorker";
 import { paginate, sortCompatibility, type ExplorerQuery, type SortKey } from "../lib/filters";
 import { formatNumber } from "../lib/format";

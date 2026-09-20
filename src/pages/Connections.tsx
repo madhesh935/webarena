@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ReceiptCard, ReceiptDetail } from "../components/receipts";
-import { Button, EmptyState, SourceChip } from "../components/ui";
-import { useAppData } from "../context/app-context";
+import { ReceiptCard, ReceiptDetail } from "../components/ReceiptCard";
+import { Button, EmptyState, SourceChip } from "../components/UiElements";
+import { useAppData } from "../context/AppDataContext";
 import { candidatesFor } from "../data/indexes";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { relatedReceipts, SESSION_RULE, thematicComparisons } from "../lib/relationships";

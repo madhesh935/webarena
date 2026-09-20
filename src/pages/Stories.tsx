@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, Compass, GitBranch, Bookmark } from "lucide-react";
-import { JourneyChart, PeriodCompare } from "../components/charts";
+import { JourneyChart, PeriodCompare } from "../components/Charts";
 import { PageSkeleton } from "../components/PageSkeleton";
-import { ErrorBox, SourceChip } from "../components/ui";
-import { useAppData } from "../context/app-context";
+import { ErrorBox, SourceChip } from "../components/UiElements";
+import { useAppData } from "../context/AppDataContext";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { formatHours, formatNumber } from "../lib/format";
 import type { SourceId } from "../lib/model";

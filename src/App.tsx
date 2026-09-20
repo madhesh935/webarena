@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
-import { AppShell } from "./components/layout";
+import { AppShell } from "./components/AppShell";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { PageSkeleton } from "./components/PageSkeleton";
-import { AppDataProvider } from "./context/app-context";
-import { SavedProvider } from "./context/saved-context";
+import { AppDataProvider } from "./context/AppDataContext";
+import { SavedProvider } from "./context/SavedContext";
 
 // Route-level code splitting via React.lazy
 const StoriesPage = lazy(() => import("./pages/Stories").then((m) => ({ default: m.StoriesPage })));

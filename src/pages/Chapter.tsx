@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useRef } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { SimpleBars } from "../components/charts";
-import { ReceiptCard, ReceiptDetail } from "../components/receipts";
-import { Button, DialogSheet, ErrorBox, SourceChip } from "../components/ui";
+import { SimpleBars } from "../components/Charts";
+import { ReceiptCard, ReceiptDetail } from "../components/ReceiptCard";
+import { Button, DialogSheet, ErrorBox, SourceChip } from "../components/UiElements";
 import { MEDIA_QUERIES } from "../constants";
-import { useAppData } from "../context/app-context";
-import { useSaved } from "../context/saved-context";
+import { useAppData } from "../context/AppDataContext";
+import { useSaved } from "../context/SavedContext";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import { useLockBody, useMedia } from "../hooks/use-media";
+import { useLockBody, useMedia } from "../hooks/useMedia";
 import { parseStorySearch } from "../lib/url-state";
 import { PageSkeleton } from "../components/PageSkeleton";
 

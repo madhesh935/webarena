@@ -60,10 +60,10 @@ body {
 }
 
 body {
-  background-image:
-    radial-gradient(rgba(37, 39, 34, 0.035) 0.6px, transparent 0.6px),
-    linear-gradient(180deg, rgba(247, 243, 234, 0.92), rgba(247, 243, 234, 0.92));
-  background-size: 3px 3px, auto;
+  background:
+    radial-gradient(ellipse 120% 80% at 10% -10%, rgba(184, 59, 21, 0.06), transparent 55%),
+    radial-gradient(ellipse 90% 60% at 100% 0%, rgba(37, 39, 34, 0.04), transparent 50%),
+    var(--ivory);
 }
 
 #root {
@@ -132,20 +132,8 @@ button {
   padding: 0.5rem 1rem 0.85rem;
   padding-top: max(0.5rem, env(safe-area-inset-top));
   background: rgba(247, 243, 234, 0.94);
-  border-bottom: none;
+  border-bottom: 1px solid var(--rule);
   backdrop-filter: blur(8px);
-}
-
-.app-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 10px;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 8px 10px, transparent 6px, var(--ivory) 7px) 0 0 / 16px 10px repeat-x;
 }
 
 .brand {
@@ -215,7 +203,7 @@ button {
   min-height: var(--nav-h);
   padding-bottom: env(safe-area-inset-bottom);
   background: var(--paper);
-  border-top: none;
+  border-top: 1px solid var(--rule);
 }
 
 .bottom-nav a {
@@ -367,12 +355,7 @@ button {
 }
 
 .receipt-card {
-  background:
-    repeating-linear-gradient(
-      180deg,
-      var(--paper) 0 1.65rem,
-      rgba(183, 173, 151, 0.16) 1.65rem 1.7rem
-    );
+  background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: var(--shadow);
   position: relative;
@@ -385,23 +368,8 @@ button {
   font-variant-numeric: tabular-nums;
   font-size: 1.35rem;
   margin-top: 0.35rem;
-  padding-top: 0.4rem;
-  border-top: 1px dashed var(--rule-strong);
+  padding-top: 0.15rem;
 }
-
-.receipt-card::before,
-.receipt-card::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background:
-    radial-gradient(circle at 8px 0, transparent 6px, var(--paper) 7px) 0 0 / 16px 8px repeat-x;
-}
-
-.receipt-card::before { top: -1px; transform: rotate(180deg); }
-.receipt-card::after { bottom: -1px; }
 
 .receipt-card.tilt-a { transform: rotate(-1.6deg); }
 .receipt-card.tilt-b { transform: rotate(1.2deg); margin-top: 0.8rem; }
@@ -432,8 +400,7 @@ button {
 }
 
 .stat {
-  padding: 0.65rem 0;
-  border-top: 1px dotted var(--rule-strong);
+  padding: 0.75rem 0.25rem 0.75rem 0;
 }
 
 .stat strong {
@@ -451,9 +418,8 @@ button {
 .stat-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0;
+  gap: 0.35rem;
   margin: 1rem 0;
-  border-bottom: 1px dotted var(--rule-strong);
 }
 
 .card-grid {
@@ -469,6 +435,7 @@ button {
   gap: 0.45rem;
   background: var(--paper);
   border: 1px solid var(--rule);
+  border-radius: var(--radius);
   padding: 0.9rem;
   min-height: 10rem;
 }
@@ -531,12 +498,7 @@ label.field {
 
 .detail-panel,
 .sheet {
-  background:
-    repeating-linear-gradient(
-      180deg,
-      var(--paper) 0 1.7rem,
-      rgba(183, 173, 151, 0.14) 1.7rem 1.75rem
-    );
+  background: var(--paper);
   border: 1px solid var(--rule);
 }
 
@@ -594,7 +556,7 @@ label.field {
 .empty,
 .error-box {
   padding: 1.2rem;
-  border: 1px dashed var(--rule-strong);
+  border: 1px solid var(--rule);
   background: var(--paper);
 }
 

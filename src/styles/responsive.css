@@ -65,7 +65,7 @@
     padding-right: 0;
     padding-bottom: 1.2rem;
     border-right: none;
-    border-bottom: 2px dashed var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
   }
   .hero-copy::before,
   .hero-copy::after {
@@ -138,7 +138,7 @@
     padding-right: 1.4rem;
     padding-bottom: 0;
     border-bottom: none;
-    border-right: 2px dashed var(--rule-strong);
+    border-right: 1px solid var(--rule-strong);
   }
   .hero-copy::before,
   .hero-copy::after {

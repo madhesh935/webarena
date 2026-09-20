@@ -1,4 +1,4 @@
-const CACHE = "life-in-receipts-shell-v2";
+const CACHE = "life-in-receipts-shell-v3";
 const SHELL = ["./index.html", "./favicon.svg"];
 
 self.addEventListener("install", (event) => {

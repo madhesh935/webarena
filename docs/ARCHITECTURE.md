@@ -15,8 +15,8 @@ For product overview, scripts, privacy, and deployment, see the root [`README.md
 | Folder | Role |
 | --- | --- |
 | `src/pages` | Stories, Chapter, Explore, Connections, Saved — lazy-loaded from `App.tsx` |
-| `src/components` | Layout shell, page skeleton, receipt cards, charts, shared UI, error boundary |
-| `src/context` | App data provider and saved-items provider (`useReducer`) |
+| `src/components` | `AppShell`, `ReceiptCard`, `Charts`, `UiElements`, skeleton, error boundary |
+| `src/context` | `AppDataContext` and `SavedContext` (`useReducer`) |
 | `src/store` | Pure saved-state reducer and selectors |
 | `src/services` | JSON loading with an in-memory cache; Local Storage persistence |
 | `src/data` | Compact JSON decode and in-source indexes |
@@ -24,9 +24,9 @@ For product overview, scripts, privacy, and deployment, see the root [`README.md
 | `src/workers` | Search/filter worker when a source pool is large (≥ 4,000 rows) |
 | `src/types` | Receipt, explorer, and UI contracts |
 | `src/constants` | Product copy, page size, `375px` / `768px` / `1024px` media queries |
-| `src/hooks` | Debounce, media, focus trap, viewport height, intersection observer, document title |
+| `src/hooks` | Debounce, media (`useMedia`), focus trap, viewport height, document title |
 | `src/utils` | Small helpers (for example debounce) |
-| `src/styles` | Tokens (`global.css`), shell (`layout.css`), breakpoints (`responsive.css`), receipt CSS module |
+| `src/styles` | Tokens (`global.css`), shell (`layout.css`), breakpoints (`responsive.css`), `ReceiptCard.module.css` |
 
 ---
 

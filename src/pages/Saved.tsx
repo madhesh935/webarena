@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ReceiptCard } from "../components/receipts";
-import { Button, EmptyState, Field } from "../components/ui";
-import { useAppData } from "../context/app-context";
-import { useSaved } from "../context/saved-context";
+import { ReceiptCard } from "../components/ReceiptCard";
+import { Button, EmptyState, Field } from "../components/UiElements";
+import { useAppData } from "../context/AppDataContext";
+import { useSaved } from "../context/SavedContext";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { SOURCES } from "../lib/model";
 

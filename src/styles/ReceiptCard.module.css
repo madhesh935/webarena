@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 0.45rem;
   background: var(--paper);
   border: 1px solid var(--rule);
+  border-radius: var(--radius);
   padding: 1rem 0.95rem;
   min-height: 10rem;
   content-visibility: auto;
@@ -14,8 +15,14 @@
 .tile h3 {
   font-size: 1.05rem;
   margin: 0;
+  line-height: 1.3;
+}
+
+.tile .meta,
+.tile > p {
+  margin: 0;
 }
 
 .tile .meta {
-  margin: 0;
+  color: var(--ink-soft);
 }

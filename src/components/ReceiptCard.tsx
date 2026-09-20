@@ -1,11 +1,11 @@
 import { Bookmark, BookmarkCheck } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useSaved } from "../context/saved-context";
+import { useSaved } from "../context/SavedContext";
 import { formatAmount, formatDate, formatDuration, receiptDetailLine } from "../lib/format";
 import { boolLabel } from "../lib/format";
 import type { Receipt } from "../lib/model";
-import { Button, SourceChip } from "./ui";
-import styles from "../styles/receipts.module.css";
+import { Button, SourceChip } from "./UiElements";
+import styles from "../styles/ReceiptCard.module.css";
 
 export function ReceiptCard({
   receipt,
