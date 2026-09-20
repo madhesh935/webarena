@@ -43,8 +43,7 @@ export function AppShell() {
           <strong>{PRODUCT_NAME}</strong> · {FRAMING}
         </p>
         <p className="meta">
-          Static frontend only. Listening, household and customer extracts stay separate. Visitor notes never leave this
-          browser.
+          Listening, household, and purchase records stay separate. Notes you add stay on this device.
         </p>
       </footer>
       <nav className="bottom-nav" aria-label="Primary">

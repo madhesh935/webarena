@@ -110,7 +110,7 @@ export function ReceiptDetail({ receipt }: { receipt: Receipt }) {
         {saved.isBookmarked(receipt.id) ? "Saved receipt" : "Save receipt"}
       </Button>
       <label className="field note-field">
-        <span>Your note (saved in this browser, not part of the dataset)</span>
+        <span>Your note (saved on this device)</span>
         <textarea
           className="saved-note"
           value={note}
@@ -118,7 +118,8 @@ export function ReceiptDetail({ receipt }: { receipt: Receipt }) {
         />
       </label>
       <p className="muted">
-        Provenance: published fields only. Personal customer fields were removed during local preprocessing.
+        Only fields shown on this receipt are available. Sensitive customer details were removed before these files were
+        shared.
       </p>
     </div>
   );

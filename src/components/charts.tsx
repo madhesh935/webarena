@@ -100,7 +100,7 @@ export function JourneyChart({
           </div>
         ))}
       </div>
-      <p className="muted">Select a year to open the explorer with that date range. Scope stays inside this source.</p>
+      <p className="muted">Select a year to open Explore with that date range — still within this source.</p>
     </section>
   );
 }
@@ -145,8 +145,9 @@ export function PeriodCompare({
     <section className="panel" aria-labelledby="period-title">
       <h3 id="period-title">Period A versus period B</h3>
       <p>
-        Compare two windows inside this source. Totals are not a preference change when the windows cover different
-        numbers of days. Customer amounts stay “Amount; currency unspecified” and are never added to household INR.
+        Compare two date ranges in this source. If the ranges cover different numbers of days, totals alone are not a
+        fair comparison — per-day rates are shown too. Customer amounts keep an unspecified currency and are never mixed
+        with household INR.
       </p>
       <div className="period-grid">
         <fieldset className="period-set">

@@ -23,7 +23,7 @@ export function SavedPage() {
   return (
     <main id="main" className="page">
       <h1>Saved</h1>
-      <p>Saved in this browser. These notes are yours; they are not part of the original records and do not sync across devices.</p>
+      <p>Bookmarks and notes stay on this device. They are yours — not part of the original records.</p>
       {saved.warning ? <p role="status">{saved.warning}</p> : null}
       {saved.persistError ? <p role="alert">{saved.persistError}</p> : null}
 

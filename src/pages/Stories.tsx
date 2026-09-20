@@ -13,25 +13,25 @@ const PATHS = [
   {
     to: "/",
     title: "Stories",
-    blurb: "Three evidence-backed chapters with caveats and supporting receipts.",
+    blurb: "Three chapters with evidence, limits, and the receipts behind them.",
     icon: BookOpen,
   },
   {
     to: "/explore",
     title: "Explore",
-    blurb: "Search, filter and sort all three sources. Filters stay in the shareable URL.",
+    blurb: "Search, filter, and sort across music, household, and purchase receipts.",
     icon: Compass,
   },
   {
     to: "/connections",
     title: "Connections",
-    blurb: "About 4–8 within-source relations. Cross-source links stay thematic only.",
+    blurb: "See related receipts in the same source, plus similar patterns elsewhere.",
     icon: GitBranch,
   },
   {
     to: "/saved",
     title: "Saved",
-    blurb: "Bookmarks, collections and notes stay in this browser only.",
+    blurb: "Keep bookmarks, collections, and personal notes on this device.",
     icon: Bookmark,
   },
 ] as const;
@@ -68,8 +68,8 @@ export function StoriesPage() {
           <h1>Small moments. A bigger story.</h1>
           <p className="lede">Explore the habits hidden in music, routines and purchases.</p>
           <p>
-            Separate sources, shared themes. These files were not joined as one life. The collage below is
-            interface artwork, not photographs from the records.
+            Separate sources, shared themes. These records were never merged into one life story — the collage is
+            illustration, not photos from the files.
           </p>
           <div className="hero-actions">
             <Link className="btn btn-primary" to={`/stories/${firstChapter.id}`}>
@@ -107,7 +107,7 @@ export function StoriesPage() {
         <div className="path-head">
           <h2>Ways to explore</h2>
           <p className="muted">
-            Stories, search, connections and saved notes — four routes through the same separate extracts.
+            Stories, search, connections, and saved notes — four ways through the same three sources.
           </p>
         </div>
         <div className="path-cards">

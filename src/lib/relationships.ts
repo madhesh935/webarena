@@ -4,7 +4,7 @@ import { looksLikeRoute, normalizeNote } from "./parse";
 const SESSION_GAP_MS = 30 * 60 * 1000;
 
 export const SESSION_RULE =
-  "A nearby listening session is another play whose UTC stop timestamp is within 30 minutes of this one. Duration is not used to rebuild start time; only recorded stop times are compared.";
+  "A nearby listening session is another play within 30 minutes, using the recorded stop times only.";
 
 export function relatedReceipts(focus: Receipt, pool: Receipt[], limit = 8): Relation[] {
   const sameSource = pool.filter((r) => r.id !== focus.id && r.source === focus.source);

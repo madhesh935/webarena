@@ -6,7 +6,7 @@ import { PageSkeleton } from "./components/PageSkeleton";
 import { AppDataProvider } from "./context/app-context";
 import { SavedProvider } from "./context/saved-context";
 
-// React.lazy — route-level code splitting for FAIE/FQE performance checks
+// Route-level code splitting via React.lazy
 const StoriesPage = lazy(() => import("./pages/Stories").then((m) => ({ default: m.StoriesPage })));
 const ChapterPage = lazy(() => import("./pages/Chapter").then((m) => ({ default: m.ChapterPage })));
 const ExplorePage = lazy(() => import("./pages/Explore").then((m) => ({ default: m.ExplorePage })));

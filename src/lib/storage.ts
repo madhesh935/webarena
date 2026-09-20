@@ -48,8 +48,8 @@ export function persistSavedState(state: SavedStateV1): string | null {
   } catch (err) {
     const quota = err instanceof DOMException && (err.name === "QuotaExceededError" || err.code === 22);
     return quota
-      ? "This browser is out of storage space for saved items."
-      : "Could not save in this browser.";
+      ? "This device is out of storage space for saved items."
+      : "Could not save on this device.";
   }
 }
 
@@ -60,7 +60,7 @@ export function exportCollection(state: SavedStateV1, collectionId: string) {
   return {
     product: "Life in Receipts",
     framing: "Separate sources, shared themes.",
-    savedInThisBrowser: true,
+    savedOnThisDevice: true,
     collection: {
       name: collection.name,
       createdAt: collection.createdAt,
@@ -68,7 +68,7 @@ export function exportCollection(state: SavedStateV1, collectionId: string) {
         id,
         source: id.split(":")[0],
         sourceRow: Number(id.split(":")[1]),
-        visitorNote: annotations.find((a) => a.receiptId === id)?.note ?? null,
+        note: annotations.find((a) => a.receiptId === id)?.note ?? null,
       })),
     },
   };

@@ -146,12 +146,12 @@ export function ExplorePage() {
     <main id="main" className="page page-wide">
       <h1>Explore receipts</h1>
       <p>
-        Search and filter stay inside the published fields. Counts use every loaded matching row, not only this page.
-        The address bar keeps your filters so you can share a view.
+        Search and filter across the fields in each receipt. Counts include every matching row, not only this page.
+        Your filters stay in the link so you can share a view.
       </p>
       <div className="share-row">
         <Button type="button" variant="secondary" onClick={() => void copyShareLink()}>
-          {copied ? "Link copied" : "Copy shareable URL"}
+          {copied ? "Link copied" : "Copy link"}
         </Button>
         <code title={shareHref}>{params.toString() || "no filters yet"}</code>
       </div>

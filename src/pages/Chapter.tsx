@@ -139,7 +139,7 @@ export function ChapterPage() {
           </aside>
         ) : null}
         {visualRows.length > 0 ? (
-          <SimpleBars rows={visualRows} caption="Computed from the published source extract, not from a joined biography." />
+          <SimpleBars rows={visualRows} caption="Drawn from this source alone — not from a combined life story." />
         ) : null}
       </section>
 

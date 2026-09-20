@@ -62,8 +62,8 @@ export function ConnectionsPage() {
       <main id="main" className="page">
         <h1>Connections</h1>
         <p>
-          Pick a receipt to see about 4–8 related records from the same source. Exact entity matches rank above weak
-          proximity. {SESSION_RULE}
+          Pick a receipt to see a handful of related records from the same source. Strong matches come first.{" "}
+          {SESSION_RULE}
         </p>
         {samples.length === 0 ? (
           <p role="status">Loading sources so you can choose a starting receipt…</p>
