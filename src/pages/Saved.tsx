@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ReceiptCard } from "../components/receipts";
 import { Button, EmptyState, Field } from "../components/ui";
 import { useAppData } from "../context/app-context";
 import { useSaved } from "../context/saved-context";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { SOURCES } from "../lib/model";
-import { useEffect } from "react";
 
 export function SavedPage() {
   const saved = useSaved();
   const { getReceipt, ensureSources } = useAppData();
   const [name, setName] = useState("");
   const [confirmId, setConfirmId] = useState<string | null>(null);
+  useDocumentTitle("Saved");
 
   useEffect(() => {
     void ensureSources([...SOURCES]);

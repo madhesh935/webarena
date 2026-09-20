@@ -2,9 +2,11 @@ import { lazy, Suspense } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AppShell } from "./components/layout";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { PageSkeleton } from "./components/PageSkeleton";
 import { AppDataProvider } from "./context/app-context";
 import { SavedProvider } from "./context/saved-context";
 
+// React.lazy — route-level code splitting for FAIE/FQE performance checks
 const StoriesPage = lazy(() => import("./pages/Stories").then((m) => ({ default: m.StoriesPage })));
 const ChapterPage = lazy(() => import("./pages/Chapter").then((m) => ({ default: m.ChapterPage })));
 const ExplorePage = lazy(() => import("./pages/Explore").then((m) => ({ default: m.ExplorePage })));
@@ -17,7 +19,7 @@ export default function App() {
       <ErrorBoundary>
         <AppDataProvider>
           <SavedProvider>
-            <Suspense fallback={<main id="main" className="page"><p role="status">Loading…</p></main>}>
+            <Suspense fallback={<PageSkeleton />}>
               <Routes>
                 <Route element={<AppShell />}>
                   <Route path="/" element={<StoriesPage />} />

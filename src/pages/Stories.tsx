@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, Compass, GitBranch, Bookmark } from "lucide-react";
 import { JourneyChart, PeriodCompare } from "../components/charts";
+import { PageSkeleton } from "../components/PageSkeleton";
 import { ErrorBox, SourceChip } from "../components/ui";
 import { useAppData } from "../context/app-context";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { formatHours, formatNumber } from "../lib/format";
 import type { SourceId } from "../lib/model";
 
@@ -37,6 +39,7 @@ const PATHS = [
 export function StoriesPage() {
   const { overview, stories, shellError, reloadShell, receipts, ensureSource } = useAppData();
   const [journeySource, setJourneySource] = useState<SourceId>("spotify");
+  useDocumentTitle("Stories");
 
   useEffect(() => {
     void ensureSource("spotify");
@@ -52,16 +55,7 @@ export function StoriesPage() {
     );
   }
   if (!overview || !stories) {
-    return (
-      <main id="main" className="page">
-        <div className="skeleton-stack" role="status" aria-live="polite">
-          <div className="skeleton-block skeleton-hero" />
-          <div className="skeleton-block skeleton-line" />
-          <div className="skeleton-block skeleton-line short" />
-          <p className="sr-only">Loading stories and source summaries…</p>
-        </div>
-      </main>
-    );
+    return <PageSkeleton label="Loading stories and source summaries…" />;
   }
 
   const firstChapter = stories.chapters[0];

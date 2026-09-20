@@ -227,7 +227,7 @@ button {
 .page {
   width: min(var(--max), calc(100% - 2rem));
   margin: 0 auto;
-  padding: var(--space-5) 0 calc(var(--nav-h) + var(--space-5));
+  padding: var(--space-5) 0 var(--space-5);
 }
 
 .page-wide {

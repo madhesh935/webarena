@@ -109,6 +109,53 @@
   margin-top: 1rem;
 }
 
+.app-footer {
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.15rem 0 calc(var(--nav-h) + 1.25rem);
+  border-top: 1px dashed var(--rule-strong);
+}
+
+.app-footer p {
+  margin: 0 0 0.35rem;
+}
+
+.app-footer .meta {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  max-width: 42rem;
+}
+
+.detail-title {
+  margin-top: 0.7rem;
+}
+
+.note-field {
+  margin-top: 1rem;
+}
+
+.connection-list.spaced {
+  margin-top: 0.75rem;
+}
+
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin: 0.75rem 0 1rem;
+}
+
+.share-row code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background: #efe6d4;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--rule);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .path-grid {
   margin: 1.5rem 0 0.5rem;
 }

@@ -6,6 +6,7 @@ import { Button, DialogSheet, EmptyState, ErrorBox, Field, LiveRegion, SourceChi
 import { useAppData } from "../context/app-context";
 import { MEDIA_QUERIES, PAGE_SIZE } from "../constants";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useLockBody, useMedia } from "../hooks/use-media";
 import { useFilteredReceipts } from "../hooks/useSearchWorker";
 import { paginate, sortCompatibility, type ExplorerQuery, type SortKey } from "../lib/filters";
@@ -23,6 +24,8 @@ export function ExplorePage() {
   const [draftQ, setDraftQ] = useState(parsed.q);
   const debouncedQ = useDebouncedValue(draftQ);
   const [journeySource, setJourneySource] = useState<SourceId>(parsed.sources[0] ?? "spotify");
+  const [copied, setCopied] = useState(false);
+  useDocumentTitle("Explore");
 
   const needed: SourceId[] = parsed.sources.length ? parsed.sources : [...SOURCES];
   const neededKey = needed.join(",");
@@ -127,6 +130,18 @@ export function ExplorePage() {
     update({ sources: has ? parsed.sources.filter((s) => s !== source) : [...parsed.sources, source] });
   };
 
+  const shareHref = `${typeof window !== "undefined" ? window.location.origin : ""}${typeof window !== "undefined" ? window.location.pathname : ""}#/explore?${params.toString()}`;
+
+  const copyShareLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareHref);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
     <main id="main" className="page page-wide">
       <h1>Explore receipts</h1>
@@ -134,6 +149,12 @@ export function ExplorePage() {
         Search and filter stay inside the published fields. Counts use every loaded matching row, not only this page.
         The address bar keeps your filters so you can share a view.
       </p>
+      <div className="share-row">
+        <Button type="button" variant="secondary" onClick={() => void copyShareLink()}>
+          {copied ? "Link copied" : "Copy shareable URL"}
+        </Button>
+        <code title={shareHref}>{params.toString() || "no filters yet"}</code>
+      </div>
 
       {overview ? (
         <>

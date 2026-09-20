@@ -6,8 +6,10 @@ import { Button, DialogSheet, ErrorBox, SourceChip } from "../components/ui";
 import { MEDIA_QUERIES } from "../constants";
 import { useAppData } from "../context/app-context";
 import { useSaved } from "../context/saved-context";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useLockBody, useMedia } from "../hooks/use-media";
 import { parseStorySearch } from "../lib/url-state";
+import { PageSkeleton } from "../components/PageSkeleton";
 
 export function ChapterPage() {
   const { chapterId } = useParams();
@@ -20,6 +22,7 @@ export function ChapterPage() {
   const parsed = parseStorySearch(params.toString());
 
   const chapter = stories?.chapters.find((c) => c.id === chapterId);
+  useDocumentTitle(chapter?.title ?? "Chapter");
   const stepIndex = chapter ? Math.min(Math.max(parsed.step, 1), chapter.steps.length) - 1 : 0;
   const step = chapter?.steps[stepIndex];
   const insight = stories?.insights.find((i) => i.id === step?.insightId);
@@ -39,11 +42,7 @@ export function ChapterPage() {
   }, [getReceipt, step]);
 
   if (!stories) {
-    return (
-      <main id="main" className="page">
-        <p role="status">Loading chapter…</p>
-      </main>
-    );
+    return <PageSkeleton label="Loading chapter…" />;
   }
   if (!chapter || !step) {
     return (

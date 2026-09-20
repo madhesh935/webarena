@@ -4,6 +4,7 @@ import { ReceiptCard, ReceiptDetail } from "../components/receipts";
 import { Button, EmptyState, SourceChip } from "../components/ui";
 import { useAppData } from "../context/app-context";
 import { candidatesFor } from "../data/indexes";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { relatedReceipts, SESSION_RULE, thematicComparisons } from "../lib/relationships";
 import type { Receipt, Relation } from "../lib/model";
 import { SOURCES, type SourceId } from "../lib/model";
@@ -17,6 +18,7 @@ export function ConnectionsPage() {
   const [listMode, setListMode] = useState(true);
 
   const focus = receiptId ? getReceipt(receiptId) : undefined;
+  useDocumentTitle(focus ? "Connections" : "Pick a receipt");
 
   useEffect(() => {
     if (focus) void ensureSource(focus.source);
@@ -173,7 +175,7 @@ export function ConnectionsPage() {
       )}
 
       {!listMode ? (
-        <div className="connection-list" style={{ marginTop: "0.75rem" }}>
+        <div className="connection-list spaced">
           {relatedReceiptMap.map(({ rel, receipt }) => (
             <button key={rel.toId} type="button" className="connection-item" onClick={() => pick(receipt.id)}>
               Make {receipt.title} the focus

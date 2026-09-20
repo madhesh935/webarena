@@ -38,6 +38,15 @@ export function AppShell() {
         </nav>
       </header>
       <Outlet />
+      <footer className="app-footer">
+        <p>
+          <strong>{PRODUCT_NAME}</strong> · {FRAMING}
+        </p>
+        <p className="meta">
+          Static frontend only. Listening, household and customer extracts stay separate. Visitor notes never leave this
+          browser.
+        </p>
+      </footer>
       <nav className="bottom-nav" aria-label="Primary">
         {links.map((l) => (
           <NavLink key={l.to} to={l.to} end={l.end}>

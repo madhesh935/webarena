@@ -53,7 +53,7 @@ export function ReceiptDetail({ receipt }: { receipt: Receipt }) {
   return (
     <div>
       <SourceChip source={receipt.source} />
-      <h3 style={{ marginTop: "0.7rem" }}>{receipt.title}</h3>
+      <h3 className="detail-title">{receipt.title}</h3>
       <p className="meta">
         {receipt.id} · source row {receipt.sourceRow}
       </p>
@@ -109,7 +109,7 @@ export function ReceiptDetail({ receipt }: { receipt: Receipt }) {
       <Button type="button" variant="primary" onClick={() => saved.toggleBookmark(receipt.id)}>
         {saved.isBookmarked(receipt.id) ? "Saved receipt" : "Save receipt"}
       </Button>
-      <label className="field" style={{ marginTop: "1rem" }}>
+      <label className="field note-field">
         <span>Your note (saved in this browser, not part of the dataset)</span>
         <textarea
           className="saved-note"
