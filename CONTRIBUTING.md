@@ -1,11 +1,27 @@
 # Contributing
 
-This is a static frontend for a hackathon submission.
+Thanks for looking at Life in Receipts.
 
-1. `npm install`
-2. `npm run dev` (uses committed `public/data/`)
-3. `npm run typecheck && npm run lint && npm test` before opening a PR
-4. Do not commit raw CSVs or secrets
-5. Keep the framing **Separate sources, shared themes** — never join the three files as one person
+## Local setup
+
+1. Install Node.js 20+
+2. `npm install`
+3. `npm run prepare-data` only if you have the local CSV extracts
+4. `npm run dev`
+
+## Checks before a pull request
+
+```bash
+npm run typecheck
+npm run lint
+npm test
+npm run build:static
+```
+
+## Product rules
+
+- Keep the framing **Separate sources, shared themes**
+- Never treat the three files as one person
+- Do not commit raw CSVs or personal customer fields
 
 See `README.md` and `docs/ARCHITECTURE.md`.

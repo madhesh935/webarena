@@ -390,13 +390,20 @@ button {
 .panel {
   background: var(--paper);
   border: 1px solid var(--rule);
+  border-radius: var(--radius);
   padding: 1.15rem 1.2rem 1.25rem;
   content-visibility: auto;
   contain-intrinsic-size: 0 220px;
+  transition: border-color var(--move), box-shadow var(--move), transform var(--move);
 }
 
 .chapter-card {
   border-left: 4px solid var(--burnt);
+}
+
+.chapter-card:hover {
+  box-shadow: 0 8px 24px rgba(37, 39, 34, 0.08);
+  transform: translateY(-2px);
 }
 
 .stat {

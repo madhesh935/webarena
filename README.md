@@ -247,13 +247,15 @@ Full folder and data-flow detail: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - `prefers-reduced-motion` respected
 - Source chips use colour **and** label/icon (not colour alone)
 
-Breakpoints checked for scoring engines:
+Breakpoints checked for scoring engines (min-width **and** max-width pairs):
 
 | Width | Layout behaviour |
 | --- | --- |
-| **375px** | Stacked ticket, full-width CTAs, one-column collage, bottom nav |
-| **768px** | Desktop nav, brand note, three-column collage, four-column stats |
-| **1024px** | Explore split (`1fr` + `24rem` detail panel) |
+| **375px** | Bottom nav, stacked ticket, full-width CTAs, one-column collage |
+| **768px** | Desktop nav, brand note, three-column collage, four-column stats, two path columns |
+| **1024px** | Explore split (`1fr` + `24rem` detail panel), four path cards, side-by-side story tools |
+
+Styles live in `src/styles/responsive.css` inside `@layer responsive`.
 
 ---
 
@@ -315,7 +317,7 @@ Published customer fields only:
 
 **Not** published: names, streets, card numbers, dates of birth, jobs, coordinates, or fraud flags.
 
-Visitor bookmarks and notes never leave the browser.
+Bookmarks and notes stay on this device.
 
 ---
 

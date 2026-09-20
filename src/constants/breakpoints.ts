@@ -5,7 +5,7 @@ export const BREAKPOINT_PX = {
   wide: 1440,
 } as const;
 
-/** FAIE/FQE engines look for these exact pixel queries. */
+/** Canonical layout queries used across hooks and styles. */
 export const MEDIA_QUERIES = {
   mobile: "(min-width: 375px)",
   tablet: "(min-width: 768px)",

@@ -14,6 +14,7 @@ For product overview, scripts, privacy, and deployment, see the root [`README.md
 
 | Folder | Role |
 | --- | --- |
+| `src/api` | Thin re-exports of data and storage services |
 | `src/pages` | Stories, Chapter, Explore, Connections, Saved — lazy-loaded from `App.tsx` |
 | `src/components` | `AppShell`, `ReceiptCard`, `Charts`, `UiElements`, skeleton, error boundary |
 | `src/context` | `AppDataContext` and `SavedContext` (`useReducer`) |
@@ -26,7 +27,7 @@ For product overview, scripts, privacy, and deployment, see the root [`README.md
 | `src/constants` | Product copy, page size, `375px` / `768px` / `1024px` media queries |
 | `src/hooks` | Debounce, media (`useMedia`), focus trap, viewport height, document title |
 | `src/utils` | Small helpers (for example debounce) |
-| `src/styles` | Tokens (`global.css`), shell (`layout.css`), breakpoints (`responsive.css`), `ReceiptCard.module.css` |
+| `src/styles` | Entry `index.css` plus tokens/layout/responsive/`ReceiptCard.module.css` |
 
 ---
 

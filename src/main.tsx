@@ -5,9 +5,7 @@ import "@fontsource/newsreader/600.css";
 import "@fontsource/newsreader/700.css";
 import "@fontsource/source-sans-3/400.css";
 import "@fontsource/source-sans-3/600.css";
-import "./styles/global.css";
-import "./styles/layout.css";
-import "./styles/responsive.css";
+import "./styles/index.css";
 import App from "./App";
 
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
