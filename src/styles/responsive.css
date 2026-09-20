@@ -102,7 +102,7 @@
   .receipt-card.tilt-a { transform: rotate(-2.8deg); margin-top: 0.2rem; }
   .receipt-card.tilt-b { transform: rotate(2.4deg); margin-top: 0.85rem; z-index: 2; }
   .receipt-card.tilt-c { transform: rotate(-1.2deg); margin-top: 0.15rem; }
-  .ink-stamp { top: 8%; right: 0.35rem; }
+  .ink-stamp { top: -1rem; right: 0.4rem; }
   .chapter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .stat-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -161,7 +161,7 @@
   .receipt-card.tilt-a { transform: rotate(-2.4deg); }
   .receipt-card.tilt-b { transform: rotate(1.8deg) translateY(0.55rem); }
   .receipt-card.tilt-c { transform: rotate(-0.8deg); }
-  .ink-stamp { top: 42%; right: -0.45rem; }
+  .ink-stamp { top: -1rem; right: -0.5rem; }
   .card-grid { grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); }
   .stat { padding: 0.9rem 0.4rem 0.9rem 0; }
   .filters {

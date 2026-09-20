@@ -91,9 +91,9 @@ Only needed if you change the source extracts. Default paths and overrides:
 
 | Source | Default path | Environment variable |
 | --- | --- | --- |
-| Listening | `C:\Users\madhe\Downloads\archive\spotify_history.csv` | `DATA_SPOTIFY` |
-| Household | `C:\Users\madhe\Downloads\archive (1)\Daily Household Transactions.csv` | `DATA_HOUSEHOLD` |
-| Customer | `C:\Users\madhe\Downloads\archive (2)\Augmented_IndiaTransactMultiFacet2024.csv` | `DATA_CUSTOMER` |
+| Listening | `./data-raw/spotify_history.csv` | `DATA_SPOTIFY` |
+| Household | `./data-raw/Daily Household Transactions.csv` | `DATA_HOUSEHOLD` |
+| Customer | `./data-raw/Augmented_IndiaTransactMultiFacet2024.csv` | `DATA_CUSTOMER` |
 
 ```bash
 npm run prepare-data

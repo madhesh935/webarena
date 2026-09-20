@@ -28,17 +28,12 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(root, "public", "data");
+const rawDir = path.join(root, "data-raw");
 
 const PATHS = {
-  spotify:
-    process.env.DATA_SPOTIFY ??
-    path.join("C:", "Users", "madhe", "Downloads", "archive", "spotify_history.csv"),
-  household:
-    process.env.DATA_HOUSEHOLD ??
-    path.join("C:", "Users", "madhe", "Downloads", "archive (1)", "Daily Household Transactions.csv"),
-  customer:
-    process.env.DATA_CUSTOMER ??
-    path.join("C:", "Users", "madhe", "Downloads", "archive (2)", "Augmented_IndiaTransactMultiFacet2024.csv"),
+  spotify: process.env.DATA_SPOTIFY ?? path.join(rawDir, "spotify_history.csv"),
+  household: process.env.DATA_HOUSEHOLD ?? path.join(rawDir, "Daily Household Transactions.csv"),
+  customer: process.env.DATA_CUSTOMER ?? path.join(rawDir, "Augmented_IndiaTransactMultiFacet2024.csv"),
 };
 
 type Dict = Map<string, number>;
