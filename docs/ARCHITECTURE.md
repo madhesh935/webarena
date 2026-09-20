@@ -1,24 +1,34 @@
 # Architecture
 
-Life in Receipts is a static React 19 + TypeScript 5.9 + Vite 7 frontend. There is no backend, database, authentication, or remote AI. Published JSON under `public/data/` is generated locally by `npm run prepare-data` and fetched at runtime.
+Life in Receipts is a **static** React 19 + TypeScript 5.9 + Vite 7 frontend.
 
-## Layers
+- No backend, database, authentication, or remote AI
+- Published JSON under `public/data/` is generated locally by `npm run prepare-data`
+- Production hosts (for example Vercel) run `npm run build:static` and ship those files as-is
+
+For product overview, scripts, privacy, and deployment, see the root [`README.md`](../README.md).
+
+---
+
+## Folder layers
 
 | Folder | Role |
 | --- | --- |
-| `src/pages` | Stories, Chapter, Explore, Connections, Saved. Lazy-loaded from `App.tsx`. |
-| `src/components` | Layout shell, receipt cards, charts, shared UI, error boundary. |
-| `src/context` | App data provider and saved-items provider (`useReducer`). |
-| `src/store` | Pure saved-state reducer and selectors. |
-| `src/services` | JSON loading with an in-memory cache, and Local Storage persistence. |
-| `src/data` | Compact JSON decode and in-source indexes. |
-| `src/lib` | Parsing, filters, period comparison, relationships, URL state. |
-| `src/workers` | Search/filter worker used when a source pool is large (≥ 4,000 rows). |
-| `src/types` | Receipt, explorer, and UI contracts re-exported for pages. |
-| `src/constants` | Product copy, page size, and `375px` / `768px` / `1024px` media queries. |
-| `src/hooks` | Debounce, media, focus trap, viewport height, intersection observer. |
-| `src/utils` | Small helpers such as debounce. |
-| `src/styles` | Tokens in `global.css`, shell in `layout.css`, breakpoints in `responsive.css`, receipt tiles in a CSS module. |
+| `src/pages` | Stories, Chapter, Explore, Connections, Saved — lazy-loaded from `App.tsx` |
+| `src/components` | Layout shell, receipt cards, charts, shared UI, error boundary |
+| `src/context` | App data provider and saved-items provider (`useReducer`) |
+| `src/store` | Pure saved-state reducer and selectors |
+| `src/services` | JSON loading with an in-memory cache; Local Storage persistence |
+| `src/data` | Compact JSON decode and in-source indexes |
+| `src/lib` | Parsing, filters, period comparison, relationships, URL state |
+| `src/workers` | Search/filter worker when a source pool is large (≥ 4,000 rows) |
+| `src/types` | Receipt, explorer, and UI contracts |
+| `src/constants` | Product copy, page size, `375px` / `768px` / `1024px` media queries |
+| `src/hooks` | Debounce, media, focus trap, viewport height, intersection observer |
+| `src/utils` | Small helpers (for example debounce) |
+| `src/styles` | Tokens (`global.css`), shell (`layout.css`), breakpoints (`responsive.css`), receipt CSS module |
+
+---
 
 ## Data flow
 
@@ -28,39 +38,110 @@ Life in Receipts is a static React 19 + TypeScript 5.9 + Vite 7 frontend. There 
 4. Explore search for large pools runs in `search.worker.ts`. Smaller pools filter on the main thread.
 5. Explore and chapter filters live in the hash URL (`URLSearchParams`) so a view can be shared without a server.
 
+```
+CSV extracts
+    │  npm run prepare-data
+    ▼
+public/data/*.json
+    │  fetch + decode
+    ▼
+services/data (cache) ──► context/app-context
+    │
+    ├── pages (Stories / Explore / Connections / Saved)
+    ├── workers/search.worker (large pools)
+    └── store + services/storage (Saved only, Local Storage)
+```
+
+---
+
 ## Data rules
 
-Each receipt ID is source-prefixed (`spotify:12`). The three files are never joined as one person. Customer PII is stripped during `prepare-data`. Amounts from the household file stay INR; customer amounts stay “Amount; currency unspecified”. Household date-only rows stay date-only. Explicit `TRUE`/`FALSE` never collapse empty to false. Zero duration is kept as a recorded play with no listening time.
+| Rule | Implementation |
+| --- | --- |
+| Separate sources | Never join the three files as one person |
+| Stable IDs | Source-prefixed: `spotify:12`, `household:15`, `customer:4` |
+| Booleans | Explicit `TRUE` / `FALSE`; empty → `null` |
+| Zero vs missing | Zero duration / amount kept; empty → `null` |
+| Household dates | Date-only rows stay date-only |
+| Currencies | Household = INR; customer = “Amount; currency unspecified” |
+| Customer privacy | PII stripped in `prepare-data` |
+
+---
 
 ## Routing
 
-Hash routes (`#/explore`, `#/stories/return-to?step=2`) keep shareable filter and chapter state without a server rewrite. Primary navigation is Stories, Explore, Connections, Saved.
+Hash routes keep shareable filter and chapter state without server rewrites:
+
+| Route | Page |
+| --- | --- |
+| `#/` | Stories homepage |
+| `#/stories/:chapterId` | Chapter (`?step=` optional) |
+| `#/explore` | Explorer (`q`, `sources`, `cats`, `from`, `to`, `customer`, `sort`, `page`, `receipt`) |
+| `#/connections/:receiptId` | Connections |
+| `#/saved` | Bookmarks and collections |
+
+Primary navigation: **Stories · Explore · Connections · Saved**.
+
+---
 
 ## Saved state
 
-Bookmarks, collections, and visitor notes use `useReducer` in `src/store/savedReducer.ts` and persist through `src/services/storage.ts` to Local Storage only. Selectors in `src/store/selectors.ts` read that state without mutating it.
+| Concern | Location |
+| --- | --- |
+| Reducer | `src/store/savedReducer.ts` |
+| Selectors | `src/store/selectors.ts` |
+| Persistence | `src/services/storage.ts` → Local Storage |
+| Provider | `src/context/saved-context.tsx` (`useReducer`) |
+
+Bookmarks, collections, and visitor notes never sync across devices and are not part of the dataset.
+
+---
 
 ## Performance
 
-- React and Lucide are split with Vite `manualChunks`.
-- Route pages load with `React.lazy`.
-- Fonts use `font-display: swap`.
-- Receipt tiles, chapter cards, and connection rows use `content-visibility: auto`.
-- A production service worker (`public/sw.js`) caches the shell.
-- Search work for pools ≥ 4,000 rows moves off the main thread.
+| Technique | Where |
+| --- | --- |
+| Vendor chunks | Vite `manualChunks` for React and Lucide |
+| Code splitting | `React.lazy` pages in `App.tsx` |
+| Fonts | `font-display: swap` |
+| Off-screen work | `content-visibility: auto` on tiles / cards / connection rows |
+| Shell cache | `public/sw.js` registered in production |
+| Search off main thread | Worker when pool ≥ 4,000 rows |
+
+---
 
 ## Accessibility
 
-Skip link, visible `:focus-visible`, 44px touch targets, dialog focus trap, live region for matching counts, `prefers-reduced-motion`, and source chips that are not color-only.
+- Skip link to `#main`
+- Visible `:focus-visible`
+- Minimum 44px touch targets
+- Dialog focus trap and Escape to close
+- Live region for matching counts
+- `prefers-reduced-motion`
+- Source chips use icon + label, not colour alone
+
+---
 
 ## Responsive layout
 
 Mobile-first CSS in `src/styles/responsive.css`:
 
-- **375px:** stacked ticket, full-width CTAs, one-column collage, two-column stats, bottom nav.
-- **768px:** desktop nav, brand note, two-column ticket with a dashed stub, three-column collage, four-column stats.
-- **1024px:** explore split (`1fr` + `24rem` detail panel), wider ticket, filter toolbar.
+| Breakpoint | Behaviour |
+| --- | --- |
+| **375px** | Stacked ticket, full-width CTAs, one-column collage, two-column stats, bottom nav |
+| **768px** | Desktop nav, brand note, three-column collage, four-column stats |
+| **1024px** | Explore split (`1fr` + `24rem` detail panel), wider ticket, filter toolbar |
 
-## Tests
+Constants live in `src/constants/breakpoints.ts` (`MEDIA_QUERIES`).
 
-`npm test` covers parsing, filters, URL state, period comparison, connections, the saved reducer, selectors, and the in-memory cache. `npm run typecheck` and `npm run lint` gate the production build.
+---
+
+## Tests and quality gates
+
+```bash
+npm run typecheck
+npm run lint
+npm test
+```
+
+Unit tests cover parsing, filters, URL state, period comparison, connections, the saved reducer, selectors, and the in-memory cache. Typecheck and lint gate the production build.
