@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.local
+data-raw
+tmp-inspect.py
+tmp-stories.py
+.vscode
+.idea
+.vercel

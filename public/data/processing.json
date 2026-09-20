@@ -1,0 +1,39 @@
+{
+  "spotify": {
+    "rowsRead": 149860,
+    "dated": 149860,
+    "possibleExactDuplicatesKept": 1222,
+    "missingTrackUri": 0,
+    "unexpectedBooleans": 0,
+    "zeroDurationKept": 3733,
+    "shortUnder30sKept": 55660,
+    "timestampZone": "UTC as recorded"
+  },
+  "household": {
+    "rowsRead": 2461,
+    "dated": 2461,
+    "dateOnly": 1158,
+    "datetime": 1303,
+    "unparsedDates": 0,
+    "possibleExactDuplicatesKept": 9,
+    "currency": "INR"
+  },
+  "customer": {
+    "rowsRead": 10267,
+    "dated": 9417,
+    "unassignedCustomerIds": 801,
+    "uniqueRecordedIds": 1019,
+    "missingAmounts": 751,
+    "missingTransIds": 649,
+    "duplicateTransIds": 1398,
+    "merchantPrefixStrippedForDisplay": 9459,
+    "discardedPersonalFields": "cc_num, first, last, gender, street, city, state, lat, long, city_pop, job, dob, merch_lat, merch_long, is_fraud"
+  },
+  "exclusions": [
+    "No source rows were dropped from the explorer because a field was missing.",
+    "Customer names, card numbers, addresses, dates of birth, jobs, coordinates and fraud flags were not published.",
+    "Customer identifiers are stored as recorded strings. Scientific notation may already have lost precision; groups are labelled from those strings only.",
+    "Household date-only rows stay date-only and are excluded from hour-of-day views.",
+    "Customer amounts are never summed with household INR amounts."
+  ]
+}
