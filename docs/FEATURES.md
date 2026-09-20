@@ -5,14 +5,14 @@ This file maps the challenge brief to the shipped UI so reviewers can verify cov
 | Brief requirement | Where it lives |
 | --- | --- |
 | Separate sources, shared themes | Every page; source chips; ink stamp; framing note in header |
-| Hero copy + Discover / Explore CTAs | `#/` Stories hero |
-| Three chapters / storytelling | `#/stories/:id` with step buttons |
-| Search, filter, sort, inspect | `#/explore` + hash query params |
+| Hero copy + Discover / Explore CTAs | `/` Stories hero |
+| Three chapters / storytelling | `/stories/:id` with step buttons |
+| Search, filter, sort, inspect | `/explore` + query params |
 | Shareable URL state | `src/lib/url-state.ts` |
-| Within-source connections (~4–8) | `#/connections/:receiptId` |
+| Within-source connections (~4–8) | `/connections/:receiptId` |
 | Cross-source analogy (not identity) | “Compare a similar pattern” control |
 | Time change / period A vs B | Journey chart + PeriodCompare on Stories and Explore |
-| Saved bookmarks / notes (device only) | `#/saved` + Local Storage |
+| Saved bookmarks / notes (device only) | `/saved` + Local Storage |
 | Desktop / tablet / mobile | `375px` / `768px` / `1024px` in `src/styles/responsive.css` |
 | Client-only app | Vite `dist/`, no server routes |
 | Privacy (no raw customer PII) | `scripts/prepare-data.ts` → `public/data/` |

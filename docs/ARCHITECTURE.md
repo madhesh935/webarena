@@ -75,11 +75,11 @@ Hash routes keep shareable filter and chapter state without server rewrites:
 
 | Route | Page |
 | --- | --- |
-| `#/` | Stories homepage |
-| `#/stories/:chapterId` | Chapter (`?step=` optional) |
-| `#/explore` | Explorer (`q`, `sources`, `cats`, `from`, `to`, `customer`, `sort`, `page`, `receipt`) |
-| `#/connections/:receiptId` | Connections |
-| `#/saved` | Bookmarks and collections |
+| `/` | Stories homepage |
+| `/stories/:chapterId` | Chapter (`?step=` optional) |
+| `/explore` | Explorer (`q`, `sources`, `cats`, `from`, `to`, `customer`, `sort`, `page`, `receipt`) |
+| `/connections/:receiptId` | Connections |
+| `/saved` | Bookmarks and collections |
 
 Primary navigation: **Stories · Explore · Connections · Saved**.
 

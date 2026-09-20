@@ -130,7 +130,7 @@ export function ExplorePage() {
     update({ sources: has ? parsed.sources.filter((s) => s !== source) : [...parsed.sources, source] });
   };
 
-  const shareHref = `${typeof window !== "undefined" ? window.location.origin : ""}${typeof window !== "undefined" ? window.location.pathname : ""}#/explore?${params.toString()}`;
+  const shareHref = `${typeof window !== "undefined" ? window.location.origin : ""}/explore?${params.toString()}`;
 
   const copyShareLink = async () => {
     try {

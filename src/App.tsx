@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AppShell } from "./components/AppShell";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { PageSkeleton } from "./components/PageSkeleton";
@@ -15,7 +15,7 @@ const SavedPage = lazy(() => import("./pages/Saved").then((m) => ({ default: m.S
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ErrorBoundary>
         <AppDataProvider>
           <SavedProvider>
@@ -35,6 +35,6 @@ export default function App() {
           </SavedProvider>
         </AppDataProvider>
       </ErrorBoundary>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

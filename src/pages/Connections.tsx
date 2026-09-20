@@ -162,13 +162,23 @@ export function ConnectionsPage() {
             const x = 320 + Math.cos(angle) * 130;
             const y = 180 + Math.sin(angle) * 110;
             return (
-              <g key={rel.toId}>
+              <g
+                  key={rel.toId}
+                  role="link"
+                  tabIndex={0}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => pick(receipt.id)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      pick(receipt.id);
+                    }
+                  }}
+                >
                 <line x1="320" y1="180" x2={x} y2={y} stroke="#252722" strokeWidth="1.5" />
-                <a href={`#/connections/${receipt.id}`}>
                   <circle cx={x} cy={y} r="22" fill={receipt.source === "spotify" ? "#e7def3" : receipt.source === "household" ? "#d7e5d3" : "#d4e3f2"} />
                   <title>{`${receipt.title}. ${rel.explanation}`}</title>
-                </a>
-              </g>
+                </g>
             );
           })}
         </svg>
@@ -194,7 +204,7 @@ export function ConnectionsPage() {
 
       <h2>Compare a similar pattern</h2>
       {thematicComparisons(focus).map((item) => (
-        <Link key={item.href} className="connection-item compare-action" to={item.href.replace("#", "")}>
+        <Link key={item.href} className="connection-item compare-action" to={item.href}>
           {item.label}
           <p>{item.explanation}</p>
         </Link>

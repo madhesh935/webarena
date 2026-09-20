@@ -22,20 +22,20 @@ export function JourneyChart({
       ? overview.spotify.years.map((y) => ({
           label: String(y.year),
           value: y.records,
-          href: `#/explore?sources=spotify&from=${y.year}-01-01&to=${y.year}-12-31`,
+          href: `/explore?sources=spotify&from=${y.year}-01-01&to=${y.year}-12-31`,
           extra: formatHours(y.listeningMs),
         }))
       : source === "household"
         ? overview.household.years.map((y) => ({
             label: String(y.year),
             value: y.expenseCount,
-            href: `#/explore?sources=household&from=${y.year}-01-01&to=${y.year}-12-31`,
+            href: `/explore?sources=household&from=${y.year}-01-01&to=${y.year}-12-31`,
             extra: `${formatNumber(Math.round(y.expenseSum))} INR expenses`,
           }))
         : overview.customer.years.map((y) => ({
             label: String(y.year),
             value: y.records,
-            href: `#/explore?sources=customer&from=${y.year}-01-01&to=${y.year}-12-31`,
+            href: `/explore?sources=customer&from=${y.year}-01-01&to=${y.year}-12-31`,
             extra: y.amountSum == null ? "Amount; currency unspecified" : `${formatNumber(Math.round(y.amountSum))} (currency unspecified)`,
           }));
   const max = Math.max(...points.map((p) => p.value), 1);
@@ -91,7 +91,7 @@ export function JourneyChart({
         {points.map((p) => (
           <div className="chart-row" key={p.label}>
             <span>{p.label}</span>
-            <Link to={p.href.replace("#", "")} aria-label={`${p.label}: ${p.value} records. ${p.extra}`}>
+            <Link to={p.href} aria-label={`${p.label}: ${p.value} records. ${p.extra}`}>
               <div className="chart-track">
                 <div className="chart-fill" style={{ width: `${(p.value / max) * 100}%` }} />
               </div>

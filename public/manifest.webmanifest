@@ -1,0 +1,17 @@
+{
+  "name": "Life in Receipts",
+  "short_name": "Receipts",
+  "description": "Explore habits hidden in music, routines and purchases. Separate sources, shared themes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F3EA",
+  "theme_color": "#F7F3EA",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

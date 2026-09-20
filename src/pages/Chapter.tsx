@@ -122,7 +122,7 @@ export function ChapterPage() {
           <div className="bridge">
             <SourceChip source={step.bridge.source} />
             <p>{step.bridge.label}</p>
-            <Link to={step.bridge.href.replace("#", "")}>{step.bridge.label}</Link>
+            <Link to={step.bridge.href.replace(/^#/, "")}>{step.bridge.label}</Link>
           </div>
         ) : null}
         {insight ? (

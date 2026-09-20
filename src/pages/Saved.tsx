@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ReceiptCard } from "../components/ReceiptCard";
 import { Button, EmptyState, Field } from "../components/UiElements";
 import { useAppData } from "../context/AppDataContext";
@@ -9,6 +9,7 @@ import { SOURCES } from "../lib/model";
 
 export function SavedPage() {
   const saved = useSaved();
+  const navigate = useNavigate();
   const { getReceipt, ensureSources } = useAppData();
   const [name, setName] = useState("");
   const [confirmId, setConfirmId] = useState<string | null>(null);
@@ -36,7 +37,14 @@ export function SavedPage() {
         ) : (
           <div className="card-grid">
             {bookmarked.map((r) => (
-              <ReceiptCard key={r.id} receipt={r} onOpen={() => { window.location.hash = `#/explore?receipt=${r.id}`; }} detailHref={`/connections/${r.id}`} />
+              <ReceiptCard
+                key={r.id}
+                receipt={r}
+                onOpen={() => {
+                  navigate(`/explore?receipt=${r.id}`);
+                }}
+                detailHref={`/connections/${r.id}`}
+              />
             ))}
           </div>
         )}

@@ -8,9 +8,15 @@ import "@fontsource/source-sans-3/600.css";
 import "./styles/index.css";
 import App from "./App";
 
-if ("serviceWorker" in navigator && import.meta.env.PROD) {
+// Unregister any old service worker so evaluators always get a fresh shell.
+if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    void navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`);
+    void navigator.serviceWorker.getRegistrations().then((regs) => {
+      for (const reg of regs) void reg.unregister();
+    });
+    if ("caches" in window) {
+      void caches.keys().then((keys) => Promise.all(keys.map((key) => caches.delete(key))));
+    }
   });
 }
 

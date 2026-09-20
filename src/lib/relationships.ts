@@ -103,12 +103,12 @@ export function thematicComparisons(focus: Receipt): { label: string; href: stri
     return [
       {
         label: "Compare a similar pattern",
-        href: "#/explore?sources=household&q=subscription",
+        href: "/explore?sources=household&q=subscription",
         explanation: "Household subscriptions are a recurring recorded activity, not the same listener.",
       },
       {
         label: "Compare a similar pattern",
-        href: "#/explore?sources=customer&sort=newest",
+        href: "/explore?sources=customer&sort=newest",
         explanation: "Customer groups also show repeated merchants. That is a theme, not a shared identity.",
       },
     ];
@@ -117,7 +117,7 @@ export function thematicComparisons(focus: Receipt): { label: string; href: stri
     return [
       {
         label: "Compare a similar pattern",
-        href: "#/explore?sources=spotify&sort=newest",
+        href: "/explore?sources=spotify&sort=newest",
         explanation: "Listening records also contain repeats (artists, albums). Separate source, shared theme.",
       },
     ];
@@ -125,7 +125,7 @@ export function thematicComparisons(focus: Receipt): { label: string; href: stri
   return [
     {
       label: "Compare a similar pattern",
-      href: "#/explore?sources=household&q=food",
+      href: "/explore?sources=household&q=food",
       explanation: "Household notes show repeated purchases. Those rows are not this customer group.",
     },
   ];

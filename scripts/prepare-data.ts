@@ -946,7 +946,7 @@ function buildStories(spotify: SpotifyEnc, household: HouseholdEnc, customer: Cu
           insightId: "household-milk",
           visual: "milk-routine",
           receiptIds: insights[1].receiptIds,
-          bridge: { source: "household", label: "This is a different source from the listening file.", href: "#/explore?sources=household&q=milk" },
+          bridge: { source: "household", label: "This is a different source from the listening file.", href: "/explore?sources=household&q=milk" },
         },
         {
           id: "cust",
@@ -956,7 +956,7 @@ function buildStories(spotify: SpotifyEnc, household: HouseholdEnc, customer: Cu
           insightId: "customer-repeat-merchant",
           visual: "customer-repeat",
           receiptIds: insights[2].receiptIds,
-          bridge: { source: "customer", label: "Customer rows are not the household diarist.", href: "#/explore?sources=customer" },
+          bridge: { source: "customer", label: "Customer rows are not the household diarist.", href: "/explore?sources=customer" },
         },
         {
           id: "close",
@@ -999,7 +999,7 @@ function buildStories(spotify: SpotifyEnc, household: HouseholdEnc, customer: Cu
           insightId: "household-period",
           visual: "period-household",
           receiptIds: insights[4].receiptIds,
-          bridge: { source: "household", label: "Now leaving the listening file.", href: "#/explore?sources=household&from=2017-01-01&to=2017-12-31" },
+          bridge: { source: "household", label: "Now leaving the listening file.", href: "/explore?sources=household&from=2017-01-01&to=2017-12-31" },
         },
         {
           id: "cust",
@@ -1009,7 +1009,7 @@ function buildStories(spotify: SpotifyEnc, household: HouseholdEnc, customer: Cu
           insightId: "customer-period",
           visual: "period-customer",
           receiptIds: insights[5].receiptIds,
-          bridge: { source: "customer", label: "Many customers, not one shopper.", href: "#/explore?sources=customer&from=2023-01-01&to=2023-12-31" },
+          bridge: { source: "customer", label: "Many customers, not one shopper.", href: "/explore?sources=customer&from=2023-01-01&to=2023-12-31" },
         },
         {
           id: "close",
@@ -1052,7 +1052,7 @@ function buildStories(spotify: SpotifyEnc, household: HouseholdEnc, customer: Cu
           insightId: "household-firsts",
           visual: "firsts",
           receiptIds: insights[7].receiptIds,
-          bridge: { source: "household", label: "Household source only.", href: "#/explore?sources=household&q=netflix" },
+          bridge: { source: "household", label: "Household source only.", href: "/explore?sources=household&q=netflix" },
         },
         {
           id: "cust",
@@ -1062,7 +1062,7 @@ function buildStories(spotify: SpotifyEnc, household: HouseholdEnc, customer: Cu
           insightId: "customer-firsts",
           visual: "firsts",
           receiptIds: insights[8].receiptIds,
-          bridge: { source: "customer", label: "Still a separate customer file.", href: "#/explore?sources=customer" },
+          bridge: { source: "customer", label: "Still a separate customer file.", href: "/explore?sources=customer" },
         },
         {
           id: "close",

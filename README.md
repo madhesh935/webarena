@@ -57,7 +57,7 @@ A static, frontend-only app that turns three separate digital-life extracts into
 | --- | --- |
 | UI | React 19 + TypeScript 5.9 |
 | Build | Vite 7 |
-| Routing | `HashRouter` (no server rewrite needed) |
+| Routing | `BrowserRouter` + Vercel SPA rewrites |
 | Data prep | Papa Parse + local `prepare-data` script |
 | Icons / fonts | Lucide, Newsreader, Source Sans 3 |
 | Styles | CSS custom properties + CSS modules + `layout.css` / `responsive.css` |
@@ -217,11 +217,11 @@ Navigation: **Stories · Explore · Connections · Saved**.
 
 Shareable hash routes:
 
-- `#/`
-- `#/stories/:chapterId?step=2`
-- `#/explore?q=milk&sources=household`
-- `#/connections/:receiptId`
-- `#/saved`
+- `/`
+- `/stories/:chapterId?step=2`
+- `/explore?q=milk&sources=household`
+- `/connections/:receiptId`
+- `/saved`
 
 Full folder and data-flow detail: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
@@ -298,7 +298,7 @@ npm run build:static
 2. Confirm `/data/overview.json`, `/data/stories.json`, `/data/spotify.json`, `/data/household.json`, and `/data/customer.json` are reachable next to `index.html`.
 3. Do **not** upload raw CSVs or `data-raw/`.
 
-Hash routing works without rewrite rules. Vite `base` is `./` for subdirectory hosting.
+Hash-free path routing works with Vercel rewrites. Vite `base` is `/`.
 
 ---
 
