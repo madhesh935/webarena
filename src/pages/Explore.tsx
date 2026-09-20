@@ -130,7 +130,10 @@ export function ExplorePage() {
   return (
     <main id="main" className="page page-wide">
       <h1>Explore receipts</h1>
-      <p>Search and filter stay inside the published fields. Counts use every loaded matching row, not only this page.</p>
+      <p>
+        Search and filter stay inside the published fields. Counts use every loaded matching row, not only this page.
+        The address bar keeps your filters so you can share a view.
+      </p>
 
       {overview ? (
         <>

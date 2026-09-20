@@ -25,6 +25,8 @@
   .chart-row { grid-template-columns: 4.25rem 1fr 3.25rem; }
   .ink-stamp { top: 12%; right: 0.6rem; }
   .source-jumps .btn { width: 100%; }
+  .path-cards { grid-template-columns: 1fr; }
+  .story-tools { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 479px) {
@@ -109,6 +111,8 @@
     border: 1px solid var(--rule);
     padding: 0.9rem 1rem;
   }
+  .path-cards { grid-template-columns: 1fr 1fr; }
+  .story-tools { grid-template-columns: 1fr; gap: 1.25rem; }
 }
 
 @media (min-width: 992px) {
@@ -167,6 +171,14 @@
     padding: 1.1rem 1.2rem;
   }
   .search-box { width: 100%; }
+  .path-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .story-tools {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: start;
+    gap: 1.5rem;
+  }
+  .chapter-grid { gap: 1.15rem; }
+  .path-card { min-height: 7.5rem; }
 }
 
 @media (min-width: 1200px) {

@@ -34,6 +34,7 @@ A static, frontend-only app that turns three separate digital-life extracts into
 12. [Deployment](#deployment)
 13. [Privacy](#privacy)
 14. [Data limitations](#data-limitations)
+15. [Brief coverage](#brief-coverage)
 
 ---
 
@@ -328,6 +329,12 @@ Visitor bookmarks and notes never leave the browser.
 
 ---
 
+## Brief coverage
+
+See [`docs/FEATURES.md`](docs/FEATURES.md) for a requirement → screen map, and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for layers and data flow.
+
+---
+
 ## License / challenge framing
 
-Built for a frontend-only hackathon challenge. Static assets only; no remote model calls.
+Built for a frontend-only hackathon challenge. Static assets only; no remote model calls. See [`LICENSE`](LICENSE).
